@@ -24,7 +24,7 @@ function App() {
   ]);
   const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
   const gameRef = useRef();
 
   // Generate static stars for dark mode (background)
@@ -165,13 +165,14 @@ function App() {
   return (
     <div>
       {/* Dark/Light mode toggle */}
-      <div style={{
-        width: GAME_WIDTH,
-        margin: '20px auto 0 auto',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'flex-end',
-      }}>
+      <div
+        style={{
+          width: GAME_WIDTH,
+          margin: '8px auto 0 auto',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'flex-end',
+        }}>
         <span style={{ color: darkMode ? '#fff' : '#222', fontWeight: 'bold', marginRight: 8 }}>
           {darkMode ? 'Dark' : 'Light'} Mode
         </span>
@@ -183,6 +184,21 @@ function App() {
           />
           <span className="slider" />
         </label>
+      </div>
+      {/* Page Title */}
+      <div
+        style={{
+          width: GAME_WIDTH,
+          margin: '0 auto',
+          textAlign: 'center',
+          fontSize: 36,
+          fontWeight: 'bold',
+          color: darkMode ? '#ffe066' : '#19233a',
+          letterSpacing: 2,
+          textShadow: darkMode ? '2px 2px 8px #0008' : '1px 1px 4px #fff8',
+        }}
+      >
+        Fluttering Bird
       </div>
       <div
         ref={gameRef}
@@ -242,7 +258,7 @@ function App() {
         ))}
         {/* Bird */}
         <img
-          src="/bird.png"
+          src={process.env.PUBLIC_URL + '/bird.png'}
           alt="bird"
           style={{
             position: 'absolute',
@@ -373,6 +389,20 @@ function App() {
             }} />
           </div>
         )}
+      </div>
+      {/* Footer */}
+      <div
+        style={{
+          width: GAME_WIDTH,
+          margin: '10px auto 0 auto',
+          textAlign: 'center',
+          fontSize: 14,
+          color: darkMode ? '#b0b8c9' : '#888',
+          letterSpacing: 1,
+          opacity: 0.8,
+        }}
+      >
+        Idea by Agastya Singh
       </div>
     </div>
   );
