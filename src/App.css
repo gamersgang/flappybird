@@ -36,3 +36,77 @@
     transform: rotate(360deg);
   }
 }
+
+@keyframes twinkle {
+  0% { opacity: 0.8; }
+  50% { opacity: 0.2; }
+  100% { opacity: 0.8; }
+}
+
+.flappy-game {
+  outline: none;
+}
+
+.flappy-message {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 28px;
+  color: #fff;
+  text-shadow: 2px 2px 4px #333;
+  font-weight: bold;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.2);
+  padding: 20px 0;
+  border-radius: 10px;
+}
+
+/* Remove default logo styles */
+.App-logo, .App-header, .App-link {
+  display: none !important;
+}
+
+/* iPhone-style toggle switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 28px;
+  vertical-align: middle;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #ccc;
+  transition: background 0.3s;
+  border-radius: 34px;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 3px;
+  bottom: 3px;
+  background: #fff;
+  transition: transform 0.3s;
+  border-radius: 50%;
+  box-shadow: 0 1px 4px #0002;
+}
+.switch input:checked + .slider {
+  background: #4cd964;
+}
+.switch input:checked + .slider:before {
+  transform: translateX(20px);
+}
